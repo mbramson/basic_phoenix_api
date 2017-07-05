@@ -1,5 +1,4 @@
 defmodule <%= @project_name_camel_case %>.Account.Session do
-  alias <%= @project_name_camel_case %>.Repo
   alias <%= @project_name_camel_case %>.Account
   alias <%= @project_name_camel_case %>.Account.User
 

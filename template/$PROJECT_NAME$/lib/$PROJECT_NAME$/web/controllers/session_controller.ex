@@ -1,8 +1,6 @@
 defmodule <%= @project_name_camel_case %>.Web.SessionController do
   use <%= @project_name_camel_case %>.Web, :controller
 
-  alias <%= @project_name_camel_case %>.Account
-  alias <%= @project_name_camel_case %>.Account.User
   alias <%= @project_name_camel_case %>.Account.Session
 
   action_fallback <%= @project_name_camel_case %>.Web.FallbackController
@@ -19,6 +17,6 @@ defmodule <%= @project_name_camel_case %>.Web.SessionController do
     end
   end
 
-  def delete(conn, %{"id" => id}) do
+  def delete(_conn, %{"id" => _id}) do
   end
 end
