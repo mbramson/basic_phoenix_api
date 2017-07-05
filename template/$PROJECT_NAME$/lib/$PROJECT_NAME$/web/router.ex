@@ -8,6 +8,7 @@ defmodule <%= @project_name_camel_case %>.Web.Router do
   pipeline :api_auth do
     plug Guardian.Plug.VerifyHeader, realm: "Bearer"
     plug Guardian.Plug.LoadResource
+    plug Guardian.Plug.EnsureResource
   end
 
   scope "/api", <%= @project_name_camel_case %>.Web do
