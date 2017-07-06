@@ -69,6 +69,13 @@ config :guardian, Guardian,
 #     config :<%= @project_name %>, <%= @project_name_camel_case %>.Web.Endpoint, server: true
 #
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
+config :<%= @project_name %>, <%= @project_name_camel_case %>.Web.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+# Configure your database
+config :<%= @project_name %>, <%= @project_name_camel_case %>.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: System.get_env("PG_USER"),
+  password: System.get_env("PG_PASSWORD"),
+  database: "<%= @project_name %>_prod",
+  pool_size: 15
