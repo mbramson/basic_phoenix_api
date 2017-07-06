@@ -91,9 +91,14 @@ To implement a route that uses authorization simply pipe through the :api_auth
 plug in the router. Ensure that any HTTP request made to an authorized route
 contains the JWT in the "Bearer" realm of the authorization header.
 
-## Production Environment Variables
+## Environment Variables
 
-* SECRET_KEY_BASE - Used to generate session cookies.
+* SECRET_KEY_BASE - Used to generate session cookies. To generate your own:
+```elixir
+:crypto.strong_rand_bytes(64) |> Base.encode64 |> binary_part(0, 64)
+```
+* PG_USER - The postgres username
+* PG_PASSWORD - THe postgres password
 
 ### JWT Key Configuration
 
