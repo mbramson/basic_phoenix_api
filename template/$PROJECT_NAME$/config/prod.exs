@@ -72,10 +72,14 @@ config :guardian, Guardian,
 config :<%= @project_name %>, <%= @project_name_camel_case %>.Web.Endpoint,
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
+<%= if @is_heroku? do %>
 # Configure your database
 config :<%= @project_name %>, <%= @project_name_camel_case %>.Repo,
   adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
   username: System.get_env("PG_USER"),
   password: System.get_env("PG_PASSWORD"),
   database: "<%= @project_name %>_prod",
-  pool_size: 15
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true
+<% end %>

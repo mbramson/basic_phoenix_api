@@ -36,6 +36,7 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
+<%= if @is_heroku? do %>
 # Configure your database
 config :<%= @project_name %>, <%= @project_name_camel_case %>.Repo,
   adapter: Ecto.Adapters.Postgres,
@@ -43,4 +44,5 @@ config :<%= @project_name %>, <%= @project_name_camel_case %>.Repo,
   password: System.get_env("PG_PASSWORD"),
   database: "<%= @project_name %>_dev",
   hostname: "localhost",
-  pool_size: 10
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
+<% end %>
