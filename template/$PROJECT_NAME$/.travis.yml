@@ -1,3 +1,4 @@
+<% MixTemplates.ignore_file_unless(@is_travis?) %>
 language: elixir
 elixir:
   - 1.4.5
