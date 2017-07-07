@@ -14,7 +14,33 @@ $ mix archive.install hex mix_generator
 To use this, clone it and navigate to the parent directory of this project. Then:
 
 ```
-mix gen ./basic_phoenix_api name_of_project
+mix gen ./basic_phoenix_api name_of_project [options]
+```
+
+## Options
+
+Several options exist to help set up your project with some extra configuration:
+
+### travis_ci
+
+Use this option when you'd like your project to be configured to work with [Travis CI](https://travis-ci.org). When set, this will generate a `.travis.yml` file that is configured to use Elixir 1.4.5 and OTP 20.0.
+
+#### Usage
+
+```
+mix gen ./basic_phoenix_api name_of_project --travis_ci
+```
+
+### heroku
+
+Use this option when you'd like your project to be configured to work with [Heroku](https://heroku.com). When set, this will generate several files:
+* `Procfile` - Configured to run your migrations whenever you make a new release and start your server
+* `elixir_buildpack.config` - Configured to tell Heroku that you are running on Elixir 1.4.5
+
+#### Usage
+
+```
+mix gen ./basic_phoenix_api name_of_project --heroku
 ```
 
 ## License

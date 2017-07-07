@@ -9,7 +9,6 @@ config :<%= @project_name %>, <%= @project_name_camel_case %>.Web.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-<%= if @is_heroku? do %>
 # Configure your database
 config :<%= @project_name %>, <%= @project_name_camel_case %>.Repo,
   adapter: Ecto.Adapters.Postgres,
@@ -18,4 +17,3 @@ config :<%= @project_name %>, <%= @project_name_camel_case %>.Repo,
   database: "<%= @project_name %>_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
-<% end %>
