@@ -23,7 +23,7 @@ defmodule <%= @project_name_camel_case %>.Account.User do
   end
 
   @spec hash_password(%Ecto.Changeset{}) :: %Ecto.Changeset{}
-  defp hash_password(changeset = %Ecto.Changeset{valid?: true, changes: %{password: pass}}) do
+  defp hash_password(%Ecto.Changeset{valid?: true, changes: %{password: pass}} = changeset) do
     put_change(changeset, :password_hash, Comeonin.Bcrypt.hashpwsalt(pass))
   end
   defp hash_password(changeset), do: changeset
