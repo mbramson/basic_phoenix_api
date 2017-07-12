@@ -9,7 +9,7 @@ defmodule <%= @project_name_camel_case %>.GuardianSerializer do
   alias <%= @project_name_camel_case %>.Repo
 
   @spec for_token(any()) :: {:ok, String.t} | {:error, String.t}
-  def for_token(user = %User{}), do: {:ok, "User:#{user.id}"}
+  def for_token(%User{} = user), do: {:ok, "User:#{user.id}"}
   def for_token(_), do: {:error, "Unknown resource type"}
 
   @spec from_token(String.t) :: {:ok, String.t} | {:error, String.t}
