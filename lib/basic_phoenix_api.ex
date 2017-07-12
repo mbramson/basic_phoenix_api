@@ -5,6 +5,10 @@ defmodule BasicPhoenixApi do
   use MixTemplates,
     name:       :basic_phoenix_api,
     short_desc: "Template for ....",
-    source_dir: "../template"
+    source_dir: "../template",
+    options: [
+      heroku: [ to: :is_heroku?, default: false ],
+      travis_ci: [ to: :is_travis?, default: false ]
+    ]
 
 end

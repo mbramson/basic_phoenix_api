@@ -97,8 +97,12 @@ contains the JWT in the "Bearer" realm of the authorization header.
 ```elixir
 :crypto.strong_rand_bytes(64) |> Base.encode64 |> binary_part(0, 64)
 ```
+<%= if @is_heroku? do %>
+* DATABASE_URL - The URL to your postgres database instance on Heroku
+<% else %>
 * PG_USER - The postgres username
 * PG_PASSWORD - THe postgres password
+<% end %>
 
 ### JWT Key Configuration
 

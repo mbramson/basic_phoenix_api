@@ -1,2 +1,3 @@
+<% MixTemplates.ignore_file_unless(@is_heroku?) %>
 release: mix ecto.migrate
 web: MIX_ENV=prod mix phx.server
