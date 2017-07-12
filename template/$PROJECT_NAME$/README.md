@@ -106,7 +106,7 @@ contains the JWT in the "Bearer" realm of the authorization header.
 
 ### JWT Key Configuration
 
-Pairmotron uses the ES512 algorithm to generate JSON Web Tokens. You will need to generate a key and set the appropriate environment variables.
+<%= @project_name_camel_case %> uses the ES512 algorithm to generate JSON Web Tokens. You will need to generate a key and set the appropriate environment variables.
 
 To generate a key do the following from the root pairmotron directory:
 
