@@ -9,11 +9,16 @@ defmodule <%= @project_name_camel_case %>.Web.SessionController do
 
   def create(conn, %{"session" => session_params}) do
     with {:ok, user} <- Session.authenticate(session_params),
-         {:ok, jwt, _} <- Guardian.encode_and_sign(user, :token) do
-      conn
+         new_conn <- Guardian.api_sign_in(conn, user) do
+      jwt = Guardian.Plug.current_token(new_conn)
+      {:ok, claims} = Guardian.Plug.claims(new_conn)
+      exp = Map.get(claims, "exp")
+
+      new_conn
       |> put_status(:created)
       |> put_resp_header("authorization", "Bearer #{jwt}")
-      |> render("show.json", jwt: jwt, user: user)
+      |> put_resp_header("x-expires", "#{exp}")
+      |> render("show.json", user: user, jwt: jwt, exp: exp)
     end
   end
 

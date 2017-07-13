@@ -2,10 +2,11 @@ defmodule <%= @project_name_camel_case %>.Web.SessionView do
   use <%= @project_name_camel_case %>.Web, :view
   alias <%= @project_name_camel_case %>.Web.SessionView
 
-  def render("show.json", %{user: user, jwt: jwt}) do
+  def render("show.json", %{user: user, jwt: jwt, exp: exp}) do
     %{data: %{
         user: render_one(user, SessionView, "user.json", as: :user),
-        jwt: jwt}}
+        jwt: jwt,
+        exp: exp}}
   end
 
   def render("user.json", %{user: user}) do
