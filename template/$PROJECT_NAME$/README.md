@@ -99,10 +99,9 @@ contains the JWT in the "Bearer" realm of the authorization header.
 ```
 <%= if @is_heroku? do %>
 * DATABASE_URL - The URL to your postgres database instance on Heroku
-<% else %>
-* PG_USER - The postgres username
-* PG_PASSWORD - THe postgres password
 <% end %>
+* PG_USER - The postgres username <%= if @is_heroku? do %>used in the development and test environments<% end %>
+* PG_PASSWORD - THe postgres password <%= if @is_heroku? do %>used in the development and test environments<% end %>
 
 ### JWT Key Configuration
 
