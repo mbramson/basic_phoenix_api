@@ -15,16 +15,16 @@ defmodule BasicPhoenixApi.Mixfile do
   @description """
   What your template does (less than 300 characters)
   """
-  
+
   # ------------------------------------------------------------
-  
+
   def project do
     in_production = Mix.env == :prod
     [
       app:     @name,
       version: @version,
       deps:    @deps,
-      elixir:  "~> 1.4",
+      elixir:  "~> 1.5",
       package: package(),
       description:     @description,
       build_embedded:  in_production,
@@ -44,5 +44,5 @@ defmodule BasicPhoenixApi.Mixfile do
 #      extra:       %{ "type" => "a_template_for_mix_gen" },
     ]
   end
-  
+
 end
