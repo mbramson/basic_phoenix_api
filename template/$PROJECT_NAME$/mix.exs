@@ -34,8 +34,8 @@ defmodule <%= @project_name_camel_case %>.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:guardian, "~> 0.14.4"},
-     {:comeonin, "~> 3.0.0"},
+     {:guardian, "~> 0.14.5"},
+     {:comeonin, "~> 3.2.0"},
      {:ex_machina, "~> 2.0", only: :test}]
   end
 
