@@ -22,6 +22,7 @@ defmodule <%= @project_name_camel_case %>.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import <%= @project_name_camel_case %>.DataCase
+      import <%= @project_name_camel_case %>.Factory
     end
   end
 
