@@ -9,6 +9,18 @@ defmodule <%= @project_name_camel_case %>.Web.ErrorView do
     %{errors: %{detail: "Page not found"}}
   end
 
+  def render("404_invalid_token.json", _assigns) do
+    %{data: %{
+        status: "error",
+        message: "Token is invalid"}}
+  end
+
+  def render("410_expired_token.json", _assigns) do
+    %{data: %{
+        status: "error",
+        message: "Token is expired"}}
+  end
+
   def render("500.json", _assigns) do
     %{errors: %{detail: "Internal server error"}}
   end
