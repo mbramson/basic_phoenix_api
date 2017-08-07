@@ -87,6 +87,75 @@ Out of the box this phoenix template contains registration and session JSON endp
 }
 ```
 
+#### PasswordReset Endpoint
+- POST to /api/v1/password_reset
+  - Example POST:
+```
+{ "email": "email@example.com" }
+```
+  - If a user associated with that email exists, creates a UserToken with type "password_reset" for that user and calls a method to send an email to that user with password reset instructions. The method used to send email is unimplemented. Unless something unexpected happens, it always responds with:
+```
+{
+  "data": {
+    "status": "ok",
+    "message": "Password reset email sent"
+  }
+}
+```
+- GET to /api/v1/password_reset
+  - Example GET:
+```
+{ "token": "password_reset_token" }
+```
+  - If the given password reset token exists, this returns:
+```
+{
+  "data": {
+    "status": "ok",
+    "message": "Token is valid"
+  }
+}
+
+```
+  - If the given password reset token does not exist, this returns:
+```
+{
+  "data": {
+    "status": "error",
+    "message": "Token is invalid"
+  }
+}
+```
+  - The purpose of this route to verify whether a token is valid before presenting a user with the ability to reset their password.
+- PUT to /api/v1/password_reset
+  - Example PUT:
+```
+{
+  "token": "password_reset_token",
+  "email": "new_email@example.com"
+}
+```
+  - If the token is valid, this changes the password of the user associated with the password reset token to the email in the request. It then responds with:
+```
+{
+  "data": {
+    "status": "ok",
+    "message": "Password successfully reset"
+  }
+}
+```
+  - If the token is invalid, the following response is received:
+```
+{
+  "data": {
+    "status": "error",
+    "message": "Token is invalid"
+  }
+}
+```
+
+#### Your own routes
+
 To implement a route that uses authorization simply pipe through the :api_auth
 plug in the router. Ensure that any HTTP request made to an authorized route
 contains the JWT in the "Bearer" realm of the authorization header.
