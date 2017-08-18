@@ -1,6 +1,6 @@
-defmodule <%= @project_name_camel_case %>.Web.RegistrationView do
-  use <%= @project_name_camel_case %>.Web, :view
-  alias <%= @project_name_camel_case %>.Web.RegistrationView
+defmodule <%= @project_name_camel_case %>Web.RegistrationView do
+  use <%= @project_name_camel_case %>Web, :view
+  alias <%= @project_name_camel_case %>Web.RegistrationView
 
   def render("registration.json", %{user: user, jwt: jwt}) do
     %{data: %{

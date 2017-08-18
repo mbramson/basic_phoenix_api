@@ -1,5 +1,5 @@
-defmodule <%= @project_name_camel_case %>.Web.Router do
-  use <%= @project_name_camel_case %>.Web, :router
+defmodule <%= @project_name_camel_case %>Web.Router do
+  use <%= @project_name_camel_case %>Web, :router
 
   pipeline :api do
     plug :accepts, ["json"]
@@ -11,7 +11,7 @@ defmodule <%= @project_name_camel_case %>.Web.Router do
     plug Guardian.Plug.EnsureResource
   end
 
-  scope "/api", <%= @project_name_camel_case %>.Web do
+  scope "/api", <%= @project_name_camel_case %>Web do
     pipe_through :api
 
     scope "/v1" do

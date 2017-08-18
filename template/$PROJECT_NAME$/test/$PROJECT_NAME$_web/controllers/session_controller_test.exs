@@ -1,5 +1,5 @@
-defmodule <%= @project_name_camel_case %>.Web.SessionControllerTest do
-  use <%= @project_name_camel_case %>.Web.ConnCase
+defmodule <%= @project_name_camel_case %>Web.SessionControllerTest do
+  use <%= @project_name_camel_case %>Web.ConnCase
 
   alias <%= @project_name_camel_case %>.Account
 

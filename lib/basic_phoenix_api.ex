@@ -4,7 +4,7 @@ defmodule BasicPhoenixApi do
 
   use MixTemplates,
     name:       :basic_phoenix_api,
-    short_desc: "Template for ....",
+    short_desc: "Template for a basic phoenix 1.3.0 JSON api with minimal user functionality",
     source_dir: "../template",
     options: [
       heroku: [ to: :is_heroku?, default: false ],

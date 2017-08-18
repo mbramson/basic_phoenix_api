@@ -1,10 +1,10 @@
-defmodule <%= @project_name_camel_case %>.Web.PasswordResetController do
-  use <%= @project_name_camel_case %>.Web, :controller
+defmodule <%= @project_name_camel_case %>Web.PasswordResetController do
+  use <%= @project_name_camel_case %>Web, :controller
 
   alias <%= @project_name_camel_case %>.Repo
   alias <%= @project_name_camel_case %>.Account.{User, UserTokenService}
 
-  action_fallback <%= @project_name_camel_case %>.Web.PasswordResetFallbackController
+  action_fallback <%= @project_name_camel_case %>Web.PasswordResetFallbackController
 
   @doc """
   The password_reset :create action creates a UserToken with a type of

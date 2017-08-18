@@ -1,6 +1,6 @@
-defmodule <%= @project_name_camel_case %>.Web.SessionView do
-  use <%= @project_name_camel_case %>.Web, :view
-  alias <%= @project_name_camel_case %>.Web.SessionView
+defmodule <%= @project_name_camel_case %>Web.SessionView do
+  use <%= @project_name_camel_case %>Web, :view
+  alias <%= @project_name_camel_case %>Web.SessionView
 
   def render("show.json", %{user: user, jwt: jwt}) do
     %{data: %{

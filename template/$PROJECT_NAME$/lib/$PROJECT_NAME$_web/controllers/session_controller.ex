@@ -1,9 +1,9 @@
-defmodule <%= @project_name_camel_case %>.Web.SessionController do
-  use <%= @project_name_camel_case %>.Web, :controller
+defmodule <%= @project_name_camel_case %>Web.SessionController do
+  use <%= @project_name_camel_case %>Web, :controller
 
   alias <%= @project_name_camel_case %>.Account.Session
 
-  action_fallback <%= @project_name_camel_case %>.Web.FallbackController
+  action_fallback <%= @project_name_camel_case %>Web.FallbackController
 
   plug :scrub_params, "session" when action in [:create]
 

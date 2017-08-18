@@ -1,10 +1,10 @@
-defmodule <%= @project_name_camel_case %>.Web.RegistrationController do
-  use <%= @project_name_camel_case %>.Web, :controller
+defmodule <%= @project_name_camel_case %>Web.RegistrationController do
+  use <%= @project_name_camel_case %>Web, :controller
 
   alias <%= @project_name_camel_case %>.Account
   alias <%= @project_name_camel_case %>.Account.User
 
-  action_fallback <%= @project_name_camel_case %>.Web.FallbackController
+  action_fallback <%= @project_name_camel_case %>Web.FallbackController
 
   def create(conn, %{"user" => user_params}) do
     with {:ok, %User{} = user} <- Account.create_user(user_params) do
