@@ -17,6 +17,9 @@ defmodule <%= @project_name_camel_case %>.Web.Router do
     scope "/v1" do
       post "/registrations", RegistrationController, :create
       post "/sessions", SessionController, :create
+      post "/password_reset", PasswordResetController, :create
+      get "/password_reset", PasswordResetController, :show
+      put "/password_reset", PasswordResetController, :update
     end
 
     scope "/v1" do
