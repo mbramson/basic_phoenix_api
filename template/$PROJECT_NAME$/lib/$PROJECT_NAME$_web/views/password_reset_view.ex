@@ -1,5 +1,5 @@
-defmodule <%= @project_name_camel_case %>.Web.PasswordResetView do
-  use <%= @project_name_camel_case %>.Web, :view
+defmodule <%= @project_name_camel_case %>Web.PasswordResetView do
+  use <%= @project_name_camel_case %>Web, :view
 
   def render("email_sent.json", _) do
     %{data: %{

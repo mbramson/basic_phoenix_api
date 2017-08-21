@@ -10,10 +10,10 @@ config :<%= @project_name %>,
   ecto_repos: [<%= @project_name_camel_case %>.Repo]
 
 # Configures the endpoint
-config :<%= @project_name %>, <%= @project_name_camel_case %>.Web.Endpoint,
+config :<%= @project_name %>, <%= @project_name_camel_case %>Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "94tJaReWHmXpzPGLsX7LMi3UXD1WZwZB1L7+Zp/KL9YhspYx0NRpcjBrIJMfWi6Q",
-  render_errors: [view: <%= @project_name_camel_case %>.Web.ErrorView, accepts: ~w(json)],
+  render_errors: [view: <%= @project_name_camel_case %>Web.ErrorView, accepts: ~w(json)],
   pubsub: [name: <%= @project_name_camel_case %>.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

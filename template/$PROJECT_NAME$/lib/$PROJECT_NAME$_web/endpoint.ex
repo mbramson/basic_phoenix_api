@@ -1,7 +1,7 @@
-defmodule <%= @project_name_camel_case %>.Web.Endpoint do
+defmodule <%= @project_name_camel_case %>Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :<%= @project_name %>
 
-  socket "/socket", <%= @project_name_camel_case %>.Web.UserSocket
+  socket "/socket", <%= @project_name_camel_case %>Web.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -36,7 +36,7 @@ defmodule <%= @project_name_camel_case %>.Web.Endpoint do
     key: "_<%= @project_name %>_key",
     signing_salt: "lU5fdejS"
 
-  plug <%= @project_name_camel_case %>.Web.Router
+  plug <%= @project_name_camel_case %>Web.Router
 
   @doc """
   Dynamically loads configuration from the system environment

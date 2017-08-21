@@ -9,11 +9,12 @@ defmodule BasicPhoenixApi.Mixfile do
     { :ex_doc,         ">0.0.0",  only: [:dev, :test] },
   ]
 
-  @maintainers ["Your Name <youe@example.com>"]
-  @github      "https://github.com/•••/#{@name}"
+  @maintainers ["Mathew Bramson <mathewbramson@gmail.com>"]
+  @github      "https://github.com/mbramson/#{@name}"
 
   @description """
-  What your template does (less than 300 characters)
+  This templates generates a basic Phoenix JSON api with basic user functionality including
+   registration, sign-in, password recovery, and JWT.
   """
 
   # ------------------------------------------------------------
