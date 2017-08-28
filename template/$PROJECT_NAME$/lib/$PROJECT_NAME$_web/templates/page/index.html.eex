@@ -1,0 +1,1 @@
+<%= MixTemplates.ignore_file_and_directory_unless(@use_webpack?) %>

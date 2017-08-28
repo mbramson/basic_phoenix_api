@@ -27,7 +27,7 @@ defmodule <%= @project_name_camel_case %>Web do
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/<%= @project_name %>/web/templates",
+      use Phoenix.View, root: "lib/<%= @project_name %>_web/templates",
                         namespace: <%= @project_name_camel_case %>Web
 
       # Import convenience functions from controllers
