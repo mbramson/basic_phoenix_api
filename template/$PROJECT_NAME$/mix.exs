@@ -34,7 +34,7 @@ defmodule <%= @project_name_camel_case %>.Mixfile do
      <%= if @use_webpack? do %>
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     <%= end %>
+     <% end %>
      {:postgrex, ">= 0.0.0"},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},

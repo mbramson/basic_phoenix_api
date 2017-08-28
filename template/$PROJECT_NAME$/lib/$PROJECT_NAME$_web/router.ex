@@ -16,7 +16,7 @@ defmodule <%= @project_name_camel_case %>Web.Router do
     get "/", PageController, :index
   end
 
-<%= end %>
+<% end %>
   pipeline :api do
     plug :accepts, ["json"]
   end

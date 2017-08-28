@@ -13,9 +13,9 @@ config :<%= @project_name %>, <%= @project_name_camel_case %>Web.Endpoint,
   check_origin: false,
 <%= if @use_webpack? do %>
   watchers: [npm: ["run", "watch", cd: Path.expand("../assets", __DIR__)]]
-<%= else %>
+<% else %>
   watchers: []
-<%= end %>
+<% end %>
 
 # ## SSL Support
 #
@@ -44,7 +44,7 @@ config :<%= @project_name %>, <%= @project_name_camel_case %>Web.Endpoint,
       ~r{lib/feelingsmotron/web/templates/.*(eex)$}
     ]
   ]
-<%= end %>
+<% end %>
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
