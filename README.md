@@ -43,6 +43,26 @@ Use this option when you'd like your project to be configured to work with [Hero
 mix gen ./basic_phoenix_api name_of_project --heroku
 ```
 
+### webpack
+
+Use this option if you'd like to include html routes in this project directly along with front end assets that you'd like to be bundled with webpack.
+
+When set, this will generate a number of new files and directories:
+* /assets directory - contains javascript and css that will be bundled and included in the LayoutView.
+* Directories for the top level html route ("/" by default)
+  * /APPNAME_web/controllers/page_controller.ex
+  * /APPNAME_web/views/page_view.ex
+  * /APPNAME_web/views/layout_view.ex
+  * /APPNAME_web/views/page_view.ex
+  * /APPNAME_web/templates/layout/app.html.eex
+  * /APPNAME_web/templates/page/index.html.eex
+
+#### Usage
+
+```
+mix gen ./basic_phoenix_api name_of_project --webpack
+```
+
 ## License
 
 > This project uses the [MIT License](https://opensource.org/licenses/MIT)

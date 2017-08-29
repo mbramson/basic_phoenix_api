@@ -11,7 +11,11 @@ config :<%= @project_name %>, <%= @project_name_camel_case %>Web.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
+<%= if @use_webpack? do %>
+  watchers: [npm: ["run", "watch", cd: Path.expand("../assets", __DIR__)]]
+<% else %>
   watchers: []
+<% end %>
 
 # ## SSL Support
 #
@@ -28,6 +32,19 @@ config :<%= @project_name %>, <%= @project_name_camel_case %>Web.Endpoint,
 # If desired, both `http:` and `https:` keys can be
 # configured to run both http and https servers on
 # different ports.
+<%= if @use_webpack? do %>
+
+# Watch static and templates for browser reloading.
+config :<%= @project_name %>, <%= @project_name_camel_case %>Web.Endpoint,
+  live_reload: [
+    patterns: [
+      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
+      ~r{priv/gettext/.*(po)$},
+      ~r{lib/feelingsmotron/web/views/.*(ex)$},
+      ~r{lib/feelingsmotron/web/templates/.*(eex)$}
+    ]
+  ]
+<% end %>
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

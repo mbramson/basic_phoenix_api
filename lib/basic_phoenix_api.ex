@@ -8,7 +8,8 @@ defmodule BasicPhoenixApi do
     source_dir: "../template",
     options: [
       heroku: [ to: :is_heroku?, default: false ],
-      travis_ci: [ to: :is_travis?, default: false ]
+      travis_ci: [ to: :is_travis?, default: false ],
+      webpack: [ to: :use_webpack?, default: false ],
     ]
 
 end
