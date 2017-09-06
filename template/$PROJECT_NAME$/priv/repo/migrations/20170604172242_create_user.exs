@@ -10,6 +10,6 @@ defmodule <%= @project_name_camel_case %>.Repo.Migrations.Create<%= @project_nam
       timestamps()
     end
 
-    create unique_index(:account_users, [:email])
+    create unique_index(:users, [:email])
   end
 end

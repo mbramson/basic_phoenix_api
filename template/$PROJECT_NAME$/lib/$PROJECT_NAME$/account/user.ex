@@ -4,7 +4,7 @@ defmodule <%= @project_name_camel_case %>.Account.User do
   alias <%= @project_name_camel_case %>.Account.User
 
 
-  schema "account_users" do
+  schema "users" do
     field :email, :string
     field :name, :string
 
