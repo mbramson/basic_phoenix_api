@@ -6,6 +6,7 @@ defmodule BasicPhoenixApi do
     name:       :basic_phoenix_api,
     short_desc: "Template for a basic phoenix 1.3.0 JSON api with minimal user functionality",
     source_dir: "../template",
+    just_files: ["favasdasdicon.ico"],
     options: [
       heroku: [ to: :is_heroku?, default: false ],
       travis_ci: [ to: :is_travis?, default: false ],
