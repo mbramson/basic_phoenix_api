@@ -3,7 +3,7 @@ defmodule <%= @project_name_camel_case %>.Repo.Migrations.Create<%= @project_nam
 
   def change do
     create table(:user_tokens) do
-      add :user_id, references(:account_users, on_delete: :delete_all)
+      add :user_id, references(:users, on_delete: :delete_all)
       add :token, :string, null: false
       add :type, :string, null: false
 
