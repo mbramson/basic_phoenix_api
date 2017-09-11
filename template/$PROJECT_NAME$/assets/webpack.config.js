@@ -1,5 +1,6 @@
 <% MixTemplates.ignore_file_unless(@use_webpack?) %>
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
@@ -8,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, '../priv/static/js'),
     filename: "app.js"
   },
+  context: path.resolve(__dirname, '.'),
   module: {
     rules: [
       {
@@ -20,6 +22,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin("../css/app.css")
+    new ExtractTextPlugin("../css/app.css"),
+    new CopyWebpackPlugin([
+      { from: 'static', to: '../static'},
+    ])
   ]
 };
