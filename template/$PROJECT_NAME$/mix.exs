@@ -36,7 +36,7 @@ defmodule <%= @project_name_camel_case %>.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      <% end %>
      {:postgrex, ">= 0.0.0"},
-     {:gettext, "~> 0.11"},
+     {:gettext, "~> 0.13"},
      {:cowboy, "~> 1.0"},
      {:guardian, "~> 0.14.5"},
      {:comeonin, "~> 4.0"},
