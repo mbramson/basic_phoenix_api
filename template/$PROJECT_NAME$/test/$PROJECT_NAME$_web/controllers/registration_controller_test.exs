@@ -17,8 +17,8 @@ defmodule <%= @project_name_camel_case %>Web.RegistrationControllerTest do
 
   test "creates user and sends the jwt when data is valid", %{conn: conn} do
     conn = post conn, registration_path(conn, :create), user: @create_attrs
-    assert %{"id" => _id} = json_response(conn, 201)["data"]["user"]
-    assert %{"jwt" => _jwt} = json_response(conn, 201)["data"]
+    assert %{"id" => _id} = json_response(conn, 201)["user"]
+    assert %{"jwt" => _jwt} = json_response(conn, 201)
     auth_header = Enum.find(conn.resp_headers, fn x -> elem(x, 0) == "authorization" end)
     assert {_, "Bearer" <> _} = auth_header
   end
