@@ -4,7 +4,7 @@ defmodule <%= @project_name_camel_case %>Web.SessionView do
 
   def render("show.json", %{user: user, jwt: jwt}) do
     %{user: render_one(user, SessionView, "user.json", as: :user),
-      jwt: jwt}}
+      jwt: jwt}
   end
 
   def render("user.json", %{user: user}) do

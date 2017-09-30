@@ -4,7 +4,7 @@ defmodule <%= @project_name_camel_case %>Web.RegistrationView do
 
   def render("registration.json", %{user: user, jwt: jwt}) do
     %{user: render_one(user, RegistrationView, "user.json", as: :user),
-      jwt: jwt}}
+      jwt: jwt}
   end
 
   def render("user.json", %{user: user}) do
