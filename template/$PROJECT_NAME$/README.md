@@ -56,7 +56,7 @@ Out of the box this phoenix template contains registration and session JSON endp
   - Example POST:
 ```
 {
-  "session": {
+  "user": {
     "email": "matt@example.com",
     "password": "secret_password"
   }

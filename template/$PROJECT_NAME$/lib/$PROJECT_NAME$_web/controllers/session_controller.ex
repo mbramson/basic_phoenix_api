@@ -5,10 +5,10 @@ defmodule <%= @project_name_camel_case %>Web.SessionController do
 
   action_fallback <%= @project_name_camel_case %>Web.FallbackController
 
-  plug :scrub_params, "session" when action in [:create]
+  plug :scrub_params, "user" when action in [:create]
 
-  def create(conn, %{"session" => session_params}) do
-    with {:ok, user} <- Session.authenticate(session_params),
+  def create(conn, %{"user" => user_params}) do
+    with {:ok, user} <- Session.authenticate(user_params),
          {:ok, jwt, _} <- Guardian.encode_and_sign(user, :token) do
       conn
       |> put_status(:created)
