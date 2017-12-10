@@ -18,7 +18,7 @@ defmodule <%= @project_name_camel_case %>Web.SessionControllerTest do
 
   test "logs the user in and sends the jwt when data is valid", %{conn: conn} do
     fixture(:user)
-    conn = post conn, session_path(conn, :create), session: @login_attrs
+    conn = post conn, session_path(conn, :create), user: @login_attrs
     assert %{"id" => _id} = json_response(conn, 201)["user"]
     assert %{"jwt" => _jwt} = json_response(conn, 201)
     auth_header = Enum.find(conn.resp_headers, fn x -> elem(x, 0) == "authorization" end)
@@ -26,12 +26,12 @@ defmodule <%= @project_name_camel_case %>Web.SessionControllerTest do
   end
 
   test "does not log the user in and renders a 401 unauthorized error when data is invalid", %{conn: conn} do
-    conn = post conn, session_path(conn, :create), session: @invalid_attrs
+    conn = post conn, session_path(conn, :create), user: @invalid_attrs
     assert json_response(conn, 401)["errors"] != %{}
   end
 
   test "does not log the user in and renders a 401 unauthorized error when data is missing", %{conn: conn} do
-    conn = post conn, session_path(conn, :create), session: %{}
+    conn = post conn, session_path(conn, :create), user: %{}
     assert json_response(conn, 401)["errors"] != %{}
   end
 end
