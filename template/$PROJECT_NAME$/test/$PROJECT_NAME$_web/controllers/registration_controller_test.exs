@@ -23,6 +23,13 @@ defmodule <%= @project_name_camel_case %>Web.RegistrationControllerTest do
     assert {_, "Bearer" <> _} = auth_header
   end
 
+  test "renders a conflict when a user with given email already exists", %{conn: conn} do
+    email = @create_attrs[:email]
+    insert(:user, %{email: email})
+    conn = post conn, registration_path(conn, :create), user: @create_attrs
+    assert response = json_response(conn, 409)
+  end
+
   test "does not create user and renders errors when data is invalid", %{conn: conn} do
     conn = post conn, registration_path(conn, :create), user: @invalid_attrs
     assert json_response(conn, 422)["errors"] != %{}
