@@ -21,6 +21,7 @@ defmodule <%= @project_name_camel_case %>Web.ConnCase do
       use Phoenix.ConnTest
       import <%= @project_name_camel_case %>Web.Router.Helpers
       import <%= @project_name_camel_case %>.Factory
+      import <%= @project_name_camel_case %>.AuthHelpers
 
       # The default endpoint for testing
       @endpoint <%= @project_name_camel_case %>Web.Endpoint
