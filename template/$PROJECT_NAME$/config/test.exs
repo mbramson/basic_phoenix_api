@@ -17,3 +17,6 @@ config :<%= @project_name %>, <%= @project_name_camel_case %>.Repo,
   database: "<%= @project_name %>_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# In tests, we don't care about security, we need speed
+config :bcrypt_elixir, log_rounds: 4
