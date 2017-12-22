@@ -41,6 +41,8 @@ defmodule <%= @project_name_camel_case %>Web.Router do
     scope "/v1" do
       pipe_through :api_auth
 
+      get "/profile", ProfileController, :show
+      put "/profile", ProfileController, :update
     end
   end
 end

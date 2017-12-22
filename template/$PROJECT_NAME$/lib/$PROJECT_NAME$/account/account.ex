@@ -89,6 +89,18 @@ defmodule <%= @project_name_camel_case %>.Account do
   end
 
   @doc """
+  Updates a user profile. Used by any action which allows a user to update
+  their own information. Does not allow the update of any properties related to
+  the user's privileges.
+  """
+  @spec update_user_profile(Types.user, map()) :: {:ok, Types.user} | {:error, Ecto.Changeset.t}
+  def update_user_profile(%User{} = user, attrs) do
+    user
+    |> User.profile_changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
   Deletes a User.
 
   ## Examples
