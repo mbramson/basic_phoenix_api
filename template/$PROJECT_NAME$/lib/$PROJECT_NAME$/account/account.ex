@@ -42,7 +42,7 @@ defmodule <%= @project_name_camel_case %>.Account do
   Gets a single user. Returns nil if no user is found.
   """
   @spec get_user(integer()) :: Types.user | nil
-  def get_user!(id), do: Repo.get(User, id)
+  def get_user(id), do: Repo.get(User, id)
 
   @doc """
   Retrieves the user that has the given email. Forces the email to be lowercase
