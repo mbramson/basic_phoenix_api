@@ -5,6 +5,10 @@ defmodule <%= @project_name_camel_case %>Web.ErrorView do
     %{errors: %{detail: "Invalid credentials"}}
   end
 
+  def render("403.json", _assigns) do
+    %{errors: %{detail: "Action is forbidden"}}
+  end
+
   def render("404.json", _assigns) do
     %{errors: %{detail: "Page not found"}}
   end

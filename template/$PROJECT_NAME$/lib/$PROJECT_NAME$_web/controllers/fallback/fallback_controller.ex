@@ -18,6 +18,12 @@ defmodule <%= @project_name_camel_case %>Web.FallbackController do
     end
   end
 
+  def call(conn, {:error, :forbidden}) do
+    conn
+    |> put_status(:forbidden)
+    |> render(<%= @project_name_camel_case %>Web.ErrorView, :"403")
+  end
+
   def call(conn, {:error, :not_found}) do
     conn
     |> put_status(:not_found)
