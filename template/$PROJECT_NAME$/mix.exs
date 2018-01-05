@@ -41,7 +41,7 @@ defmodule <%= @project_name_camel_case %>.Mixfile do
      {:guardian, "~> 0.14.5"},
      {:comeonin, "~> 4.0"},
      {:bcrypt_elixir, "~> 0.12.0"},
-     {:corsica, "~> 1.0"},
+     {:corsica, "~> 1.1"},
      {:ex_machina, "~> 2.0", only: :test}]
   end
 
