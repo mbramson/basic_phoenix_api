@@ -21,7 +21,7 @@ defmodule <%= @project_name_camel_case %>.Account.User do
     |> validate_required([:name, :email, :password])
     |> validate_length(:password, min: 8)
     |> hash_password
-    |> unique_constraint(:email)
+    |> unique_constraint(:email, message: "is already in use")
   end
 
   @doc """
@@ -36,7 +36,7 @@ defmodule <%= @project_name_camel_case %>.Account.User do
     |> validate_required([:name, :email])
     |> validate_length(:password, min: 8)
     |> hash_password
-    |> unique_constraint(:email)
+    |> unique_constraint(:email, message: "is already in use")
   end
 
   @spec hash_password(%Ecto.Changeset{}) :: %Ecto.Changeset{}
