@@ -35,6 +35,7 @@ defmodule <%= @project_name_camel_case %>.Account.User do
     user
     |> cast(attrs, [:name, :email, :password])
     |> validate_required([:name, :email])
+    |> downcase_email
     |> validate_length(:password, min: 8)
     |> hash_password
     |> unique_constraint(:email, message: "is already in use")

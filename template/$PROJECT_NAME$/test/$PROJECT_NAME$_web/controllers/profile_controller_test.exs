@@ -55,6 +55,16 @@ defmodule <%= @project_name_camel_case %>Web.ProfileControllerTest do
 
       assert json_response(conn, 409)
     end
+
+    test "returns a 409 when the updated email of different case is already taken" do
+      {conn, _user} = conn_with_authenticated_user()
+      insert(:user, %{email: "other_email"})
+
+      user_params = %{email: "OTHER_email"}
+      conn = put conn, profile_path(conn, :update), %{"user" => user_params}
+
+      assert json_response(conn, 409)
+    end
   end
 
   describe "non-authenticated requests" do
