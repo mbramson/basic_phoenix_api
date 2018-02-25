@@ -27,7 +27,7 @@ defmodule <%= @project_name_camel_case %>Web.RegistrationControllerTest do
     email = @create_attrs[:email]
     insert(:user, %{email: email})
     conn = post conn, registration_path(conn, :create), user: @create_attrs
-    assert = json_response(conn, 409)
+    assert json_response(conn, 409)
   end
 
   test "renders a conflict for existing email if the case does not match", %{conn: conn} do
